@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 export default function Childlist({ listToParent, newdata }) {
   const [list, setlist] = useState(["vikas", "ajit", "deepak"]);
+  listToParent(list);
   useEffect(() => {
     setlist(newdata);
   }, [newdata]);
   //
-  listToParent(list);
+
   return (
     <>
       <div>
