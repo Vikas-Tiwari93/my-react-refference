@@ -1,17 +1,13 @@
+import "./App.css";
 
-
-import './App.css'
-
-import Parentforprops from './propsinput/parentforprops'
+import ParentCompSample from "./proper callbackprop/parent.jsx";
 
 function App() {
-
   return (
     <>
-{/* <Formsmain/> */}
-<Parentforprops/>
+      <ParentCompSample />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
