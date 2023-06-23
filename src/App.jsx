@@ -1,5 +1,5 @@
 import "./App.css";
-import Parentinput from "./listofcolors/parentinput";
+import Conditional from "./conditional rendering/conditional";
 
 // import ParentCompSample from "./proper callbackprop/parent.jsx";
 
@@ -7,7 +7,8 @@ function App() {
   return (
     <>
       {/* <ParentCompSample /> */}
-      <Parentinput />
+      {/* <Parentinput /> */}
+      <Conditional />
     </>
   );
 }
