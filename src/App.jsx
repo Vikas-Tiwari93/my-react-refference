@@ -1,3 +1,4 @@
+import Calling from "./API/calling";
 import "./App.css";
 import Conditional from "./conditional rendering/conditional";
 
@@ -8,7 +9,8 @@ function App() {
     <>
       {/* <ParentCompSample /> */}
       {/* <Parentinput /> */}
-      <Conditional />
+      {/* <Conditional /> */}
+      <Calling />
     </>
   );
 }
