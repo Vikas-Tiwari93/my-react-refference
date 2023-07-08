@@ -28,6 +28,7 @@ export default function Addtocart() {
               padding: "10px",
               display: "flex",
               alignItems: "center",
+              color: "black",
             }}
           >
             cart
@@ -35,7 +36,7 @@ export default function Addtocart() {
         </Link>
       </div>
       {productlist.map((elm, index) => {
-        return <Card key={index} info={elm} />;
+        return <Card key={index} info={elm} from={"profuctlist"} />;
       })}
     </>
   );

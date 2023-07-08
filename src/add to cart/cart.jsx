@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import Card from "./card";
+
 export default function Cart() {
   let cartlist = useSelector((state) => {
     return state.cartSlice.added;
@@ -9,9 +10,9 @@ export default function Cart() {
     return state.cartSlice.amount;
   });
   return (
-    <div>
+    <div style={{ width: "100%" }}>
       <Link to="/">Go back to products</Link>
-      <div>
+      <div style={{ width: "100%" }}>
         {!cartlist ? (
           <p>empty and amount:{amount} </p>
         ) : (

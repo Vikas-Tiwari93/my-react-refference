@@ -1,11 +1,15 @@
 import { useState } from "react";
 import "./card.css";
-import { useDispatch } from "react-redux";
-import { addcart, addprice } from "./reduxsetup/cartslice";
-export default function Card({ info }) {
-  let dispatch = useDispatch();
+import { useDispatch, useSelector } from "react-redux";
+import { addcart, addprice, removecart } from "./reduxsetup/cartslice";
 
-  const [isadded, setadded] = useState(false);
+export default function Card({ info, from }) {
+  let dispatch = useDispatch();
+  let cart = useSelector((state) => {
+    return state.cartSlice.added;
+  });
+
+  const [isadded, setadded] = useState(0);
   return (
     <div className="productcard">
       <div className="cardimg">
@@ -17,15 +21,36 @@ export default function Card({ info }) {
       </div>
       <div className="carddetail">{info.title}</div>
       <div className="addtocart">
-        <button
-          onClick={() => {
-            setadded(!isadded);
-            dispatch(addcart(info));
-            dispatch(addprice(info.price));
-          }}
-        >
-          {isadded ? "added in the cart" : "add to cart"}
-        </button>
+        {!from ? (
+          <button
+            onClick={() => {
+              dispatch(removecart(info));
+            }}
+          >
+            Delete product
+          </button>
+        ) : (
+          <button
+            onClick={() => {
+              setadded(1);
+
+              // only one elm added
+              let init = cart.filter((elm) => {
+                if (elm.id === info.id) {
+                  return elm;
+                }
+              });
+              if (init.length === 0) {
+                dispatch(addcart(info));
+                dispatch(addprice(info.price));
+              }
+              console.log(init);
+              console.log(cart);
+            }}
+          >
+            {isadded ? "added in the cart" : "add to cart"}
+          </button>
+        )}
       </div>
     </div>
   );
