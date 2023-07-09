@@ -1,8 +1,8 @@
 // import Calling from "./API/calling";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Addtocart from "./add to cart/Addtocart";
-import Cart from "./add to cart/cart";
+import Addtocart from "./add to cart with backend/Addtocart";
+import Cart from "./add to cart with backend/cart";
 // import Conditional from "./conditional rendering/conditional";
 // import Parentapi from "./calling api properway/parentapi";
 

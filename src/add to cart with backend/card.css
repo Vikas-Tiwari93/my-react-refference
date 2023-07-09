@@ -1,0 +1,31 @@
+.productcard {
+  
+  display: flex;
+  width: 80%;
+  padding: 10px;
+  height: 150px;
+  border: 1px solid black;
+}
+.cardimg {
+  width: 20%;
+  height: 100%;
+}
+.carddetail {
+  width: 50%;
+  height: 100%;
+}
+
+.addtocart {
+  width: 20%;
+  height: 100%;
+}
+.cartbar {
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(66, 17, 112, 0.542);
+  height: 40px;
+  display: flex;
+  justify-content: end;
+  position: sticky;
+  top: 0px;
+}

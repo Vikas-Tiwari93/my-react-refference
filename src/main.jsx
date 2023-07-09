@@ -2,7 +2,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
 import { Provider } from "react-redux";
-import store from "./add to cart/reduxsetup/store.js";
+import store from "./add to cart with backend/reduxsetup/store.js";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
     <App />
