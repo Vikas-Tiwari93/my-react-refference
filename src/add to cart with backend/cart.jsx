@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "./cardserver";
 import { useEffect } from "react";
-import { cartlistget } from "./reduxsetup/cartslice";
+import { cartlistget2 } from "./reduxsetup/cartslice";
 
 export default function Cart() {
   const dispatch = useDispatch();
@@ -10,7 +10,7 @@ export default function Cart() {
     return state.cartSlice.added;
   });
   useEffect(() => {
-    dispatch(cartlistget());
+    dispatch(cartlistget2());
   }, []);
   let amount = useSelector((state) => {
     return state.cartSlice.amount;
@@ -22,8 +22,8 @@ export default function Cart() {
         {!cartlist ? (
           <p>empty and amount:{amount} </p>
         ) : (
-          cartlist.map((elm, index) => {
-            return <Card info={elm} key={index} />;
+          cartlist.map((elm) => {
+            return <Card info={elm} key={elm.id} />;
           })
         )}
         <p>and amount:{amount}</p>;

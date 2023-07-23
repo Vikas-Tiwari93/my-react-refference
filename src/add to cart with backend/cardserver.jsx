@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./card.css";
 import { useDispatch, useSelector } from "react-redux";
-import { addprice, cartlistget, reduceprice } from "./reduxsetup/cartslice";
+import { addprice, cartlistget2, reduceprice } from "./reduxsetup/cartslice";
 
 export default function Card({ info, from }) {
   const [clicked, setclicked] = useState(true);
@@ -67,7 +67,7 @@ export default function Card({ info, from }) {
 
   const [isadded, setadded] = useState(0);
   useEffect(() => {
-    dispatch(cartlistget());
+    dispatch(cartlistget2());
   }, [clicked]);
   return (
     <div className="productcard">

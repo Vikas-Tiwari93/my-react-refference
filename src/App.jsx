@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Addtocart from "./add to cart with backend/Addtocart";
 import Cart from "./add to cart with backend/cart";
+import ParentHoc from "./higher order components/ParentHoc";
+import Grandparent from "./higher order components/Grandparent";
 // import Conditional from "./conditional rendering/conditional";
 // import Parentapi from "./calling api properway/parentapi";
 
@@ -17,12 +19,15 @@ function App() {
       {/* <Calling /> */}
       {/* <Parentapi /> */}
       {/* <ShowHideFifth /> */}
-      <BrowserRouter>
+      {/* ...........this is for add to card prog................  */}
+      {/* <BrowserRouter>
         <Routes>
           <Route path="/" element={<Addtocart />}></Route>
           <Route path="/cart" element={<Cart />}></Route>
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter> */}
+      {/* ...........this is for add to card prog................  */}
+      <Grandparent />
     </>
   );
 }
