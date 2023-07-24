@@ -1,0 +1,14 @@
+.head {
+  display: flex;
+  justify-content: space-around;
+}
+.child {
+  display: flex;
+  flex-direction: column;
+  background-color: grey;
+  color: white;
+}
+#print {
+  background-color: brown;
+  color: white;
+}
