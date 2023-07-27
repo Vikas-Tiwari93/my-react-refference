@@ -5,7 +5,7 @@ import Addtocart from "./add to cart with backend/Addtocart";
 import Cart from "./add to cart with backend/cart";
 import ParentHoc from "./higher order components/ParentHoc";
 import Grandparent from "./higher order components/Grandparent";
-import Router from "./routerDom/Router";
+import Router from "./path and query params/Router";
 import Formdynamic from "./dynamicForm/Form";
 
 // import Conditional from "./conditional rendering/conditional";
@@ -32,7 +32,8 @@ function App() {
       {/* ...........this is for add to card prog................  */}
       {/* <Grandparent /> */}
       {/* <Router /> */}
-      <Formdynamic />
+      {/* <Formdynamic /> */}
+      <Router />
     </>
   );
 }
