@@ -7,6 +7,8 @@ import ParentHoc from "./higher order components/ParentHoc";
 import Grandparent from "./higher order components/Grandparent";
 import Router from "./path and query params/Router";
 import Formdynamic from "./dynamicForm/Form";
+import Otp from "./useRef/Otp";
+import FormComponent from "./debugging/debugging";
 
 // import Conditional from "./conditional rendering/conditional";
 // import Parentapi from "./calling api properway/parentapi";
@@ -22,6 +24,7 @@ function App() {
       {/* <Calling /> */}
       {/* <Parentapi /> */}
       {/* <ShowHideFifth /> */}
+
       {/* ...........this is for add to card prog................  */}
       {/* <BrowserRouter>
         <Routes>
@@ -30,10 +33,13 @@ function App() {
         </Routes>
       </BrowserRouter> */}
       {/* ...........this is for add to card prog................  */}
+
       {/* <Grandparent /> */}
       {/* <Router /> */}
       {/* <Formdynamic /> */}
-      <Router />
+      {/* <Router /> */}
+      {/* <Otp /> */}
+      <FormComponent />
     </>
   );
 }

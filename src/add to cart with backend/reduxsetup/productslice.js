@@ -8,7 +8,7 @@ export let productData = createAsyncThunk("productData", async () => {
   try {
     let producst = await fetch("http://localhost:3000/products");
     let json = await producst.json();
-    console.log(json);
+    console.log("rerenderjson", json);
     return json;
   } catch (err) {
     console.log(err);

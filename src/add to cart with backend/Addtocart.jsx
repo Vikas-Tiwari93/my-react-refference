@@ -5,13 +5,13 @@ import { productData } from "./reduxsetup/productslice.js";
 import { useEffect } from "react";
 
 export default function Addtocart() {
-  let Dispatch = useDispatch();
-  useEffect(() => {
-    Dispatch(productData());
-  }, []);
   const productlist = useSelector((state) => {
     return state.productslice.products;
   });
+  let Dispatch = useDispatch();
+  useEffect(() => {
+    productlist.length === 0 ? Dispatch(productData()) : null;
+  }, []);
 
   if (productlist.length === 0) {
     return <p>Please wait while we are loading</p>;

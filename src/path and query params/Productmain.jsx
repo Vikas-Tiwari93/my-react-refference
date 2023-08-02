@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useLayoutEffect } from "react";
 import { Link, useLocation, useSearchParams } from "react-router-dom";
 
 export default function Productmain() {
@@ -92,28 +92,80 @@ export default function Productmain() {
     setdata(jsondata.products);
   };
   useEffect(() => {
-    fetchdata();
     let querryarr = [];
     let paramsobj = {};
     let loadQuery = location.search;
-    let newloadQuery = loadQuery.substring(1, loadQuery.length);
-    let arr = newloadQuery.split("&");
-    for (let i = 0; i < arr.length; i++) {
-      paramsobj[arr[i].split("=")[0]] = arr[i].split("=")[1];
-      let Qryvalue = arr[i].split("=")[1];
-      querryarr.push(Qryvalue);
-      let newinput = [...input];
-      for (let j = 0; j < newinput.length; j++) {
-        if (newinput[j].label === Qryvalue) {
-          newinput[j].ischecked = !newinput[j].ischecked;
-          fetchdatanext(Qryvalue);
-        }
-      }
-      setinput(newinput);
-      setactiveSearchparams(paramsobj);
+    if (!loadQuery) {
+      fetchdata();
+      return;
     }
+    const params = new URLSearchParams(location.search);
 
-    console.log(querryarr);
+    // Convert the query parameters to an object
+    const queryParamsObj = {};
+    let requests = [];
+    for (const [key, value] of params.entries()) {
+      queryParamsObj[key] = value;
+      setinput((prevState) => {
+        return prevState.map((elm) => {
+          console.log("i am here", elm, value);
+          if (elm.label === value) {
+            elm.ischecked = !elm.ischecked;
+          }
+          return elm;
+        });
+      });
+      requests.push(`https://dummyjson.com/products/category/${value}`);
+    }
+    console.log("queryParamsObj", requests);
+
+    const fetchData = async (urls) => {
+      try {
+        // Use Promise.all to fetch data from all URLs simultaneously
+        const responses = await Promise.all(urls.map((url) => fetch(url)));
+
+        // Assuming the data is in JSON format, parse the responses
+        const dataFromResponses = await Promise.all(
+          responses.map((response) => response.json())
+        );
+
+        // Set the state with the fetched data
+        console.log("promise.all", dataFromResponses);
+
+        let promiseResult = [];
+        for (let i = 0; i < dataFromResponses.length; i++) {
+          promiseResult.push(...dataFromResponses[i].products);
+        }
+        setdata([...promiseResult]);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData(requests);
+    return;
+
+    //
+
+    // let newloadQuery = loadQuery.substring(1, loadQuery.length);
+    // let arr = newloadQuery.split("&");
+    // for (let i = 0; i < arr.length; i++) {
+    //   paramsobj[arr[i].split("=")[0]] = arr[i].split("=")[1];
+    //   let Qryvalue = arr[i].split("=")[1];
+    //   querryarr.push(Qryvalue);
+    //   let newinput = [...input];
+    //   for (let j = 0; j < newinput.length; j++) {
+    //     if (newinput[j].label === Qryvalue) {
+    //       newinput[j].ischecked = !newinput[j].ischecked;
+
+    //       fetchdatanext(Qryvalue);
+    //     }
+    //   }
+    //   setinput(newinput);
+    //   setactiveSearchparams(paramsobj);
+    // }
+
+    // console.log(querryarr);
   }, []);
 
   useEffect(() => {
