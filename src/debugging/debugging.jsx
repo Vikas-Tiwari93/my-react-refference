@@ -30,8 +30,11 @@ const FormComponent = () => {
 
   useEffect(() => {
     let oldData = JSON.parse(localStorage.getItem("formData"));
-    setinputFeilds(oldData);
+    if (oldData !== null) {
+      setinputFeilds(oldData);
+    }
   }, []);
+
   useEffect(() => {
     localStorage.setItem("formData", JSON.stringify(inputFeilds));
   }, [inputFeilds]);
