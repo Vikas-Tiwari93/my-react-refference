@@ -1,23 +1,5 @@
 import { useReducer, useEffect } from "react";
-export const initialState = JSON.parse(localStorage.getItem("formData")) || [
-  { name: "firstName", value: "", type: "text" },
-  { name: "lastName", value: "", type: "text" },
-  { name: "email", value: "", type: "text" },
-];
-
-export const changeReducer = (state, action) => {
-  switch (action.type) {
-    case "change":
-      return state.map((elm) => {
-        if (elm.name === action.field) {
-          elm.value = action.value;
-        }
-        return elm;
-      });
-    default:
-      return state;
-  }
-};
+import { changeReducer, initialState } from "./debugging";
 
 const FormComponent = () => {
   // Initialize state as an object with properties for firstName, lastName, and email

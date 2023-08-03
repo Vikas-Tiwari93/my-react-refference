@@ -8,7 +8,7 @@ import Grandparent from "./higher order components/Grandparent";
 import Router from "./path and query params/Router";
 import Formdynamic from "./dynamicForm/Form";
 import Otp from "./useRef/Otp";
-import FormComponent from "./debugging/debugging";
+import FormComponent from "./debugging/debuggingV2";
 
 // import Conditional from "./conditional rendering/conditional";
 // import Parentapi from "./calling api properway/parentapi";
