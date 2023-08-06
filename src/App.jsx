@@ -38,8 +38,8 @@ function App() {
       {/* <Router /> */}
       {/* <Formdynamic /> */}
       {/* <Router /> */}
-      {/* <Otp /> */}
-      <FormComponent />
+      <Otp />
+      {/* <FormComponent /> */}
     </>
   );
 }

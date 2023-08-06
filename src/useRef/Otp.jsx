@@ -10,7 +10,7 @@ export default function Otp() {
   ]);
 
   const changefn = (id) => {
-    console.log(id);
+    console.log("ref", Reff.current[id]);
     if (Reff.current[id].value.length === 1 && id <= input.length - 2) {
       Reff.current[id + 1].focus();
     } else if (Reff.current[id].value.length === 0 && id > 0) {
